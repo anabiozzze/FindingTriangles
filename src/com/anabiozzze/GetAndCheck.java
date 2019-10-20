@@ -35,7 +35,7 @@ public class GetAndCheck {
             reader.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("\nTrouble with second parameter format: "); e.printStackTrace();
         }
     }
 
@@ -76,10 +76,10 @@ public class GetAndCheck {
             //catch two types of errors: too much coordinates in line or incorrect format (letters, commas etc)
             } catch (NumberFormatException e) {
                 System.out.println("Format of coordinates is incorrect in line: " + str);
-                break;
+                return;
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Number of coordinates is incorrect in line: " + str);
-                break;
+                return;
             }
         }
 
@@ -89,6 +89,7 @@ public class GetAndCheck {
 
     //checking result list
     private void outCheck() {
+        System.out.println();
         for (int[] arr : result) {
             for (int a : arr) {
                 System.out.print(a + ", ");
